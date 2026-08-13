@@ -4,7 +4,9 @@
   "description": "Tiny Node.js app for deployment QA.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node -e \"console.log('QA_BUILD_SCRIPT_STARTED'); console.log('Package manager build command was executed'); console.log('Current Node:', process.version); console.log('QA_BUILD_SCRIPT_FINISHED');\"",
+    "fail-build": "node -e \"console.log('QA_FAIL_BUILD_STARTED'); console.log('This script intentionally fails for deployment QA'); process.exit(42);\""
   },
   "engines": {
     "node": ">=18"
