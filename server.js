@@ -12,6 +12,13 @@ const contentTypes = {
   ".js": "text/javascript; charset=utf-8"
 };
 
+const nodeMajor = Number(process.versions.node.split('.')[0]);
+
+if (nodeMajor >= 24) {
+  console.error(`QA intentional crash: Node ${process.version} is too new for this app.`);
+  process.exit(42);
+}
+
 function send(res, statusCode, body, contentType = "text/plain; charset=utf-8") {
   res.writeHead(statusCode, {
     "Content-Type": contentType,
